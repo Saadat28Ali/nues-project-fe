@@ -1,5 +1,6 @@
 import sendTextInput from "./req/backend";
 import { useState } from "react";
+import "./App.css";
 
 function App({}: {}) {
 
@@ -21,14 +22,33 @@ function App({}: {}) {
 			console.log("");
 		}
 		setLabel(result[0].label);
-		setLabel(result[0].score);
+		setScore(result[0].score);
 	}
 	return (
 		<div className="App">
-			<input type="text" id="textual_input" />
-			<button type="submit" onClick={submitTextInput}> Submit </button>
-			<div className="results center-y">
-				label: {label}, score: {score}
+			<div className="panel">
+				<label className="visually-hidden" htmlFor="textual_input">
+					Text to submit
+				</label>
+				<div className="input-row">
+					<input
+						type="text"
+						id="textual_input"
+						placeholder="Type or paste your text here"
+						autoComplete="off"
+					/>
+					<button type="submit" onClick={submitTextInput}> Submit </button>
+				</div>
+				<div className="results center-y" aria-live="polite">
+					<div className="readout">
+						<span className="readout-name">label</span>
+						<span className="readout-value">{label || "–"}</span>
+					</div>
+					<div className="readout">
+						<span className="readout-name">score</span>
+						<span className="readout-value readout-score">{score || "–"}</span>
+					</div>
+				</div>
 			</div>
 		</div>
 	);
