@@ -9,7 +9,7 @@ function App({}: {}) {
 
 	async function submitTextInput(_: any) {
 		// Do something
-		let text_type_input: HTMLElement | null = document.getElementById("textual_input");
+		let text_type_input: HTMLInputElement | null = document.getElementById("textual_input") as HTMLInputElement | null;
 		if (text_type_input === null) {
 			console.log("Could not get element by ID: textual_input");
 			return;
