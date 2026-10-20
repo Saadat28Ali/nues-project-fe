@@ -14,7 +14,7 @@ function App({}: {}) {
 			console.log("Could not get element by ID: textual_input");
 			return;
 		}
-		let result: Array = await sendTextInput(text_type_input.value);
+		let result: Array<Object> = await sendTextInput(text_type_input.value?);
 		for (let item of result) {
 			for (let key in item) {
 				console.log(`${key}: ${item[key]}`);
