@@ -7,14 +7,14 @@ function App({}: {}) {
 	const [label, setLabel] = useState<String>("");
 	const [score, setScore] = useState<String>("");
 
-	async function submitTextInput(event: any) {
+	async function submitTextInput(_: any) {
 		// Do something
-		let text_type_input: HTMLInputElement | null = document.getElementById("textual_input");
+		let text_type_input: HTMLElement | null = document.getElementById("textual_input");
 		if (text_type_input === null) {
 			console.log("Could not get element by ID: textual_input");
 			return;
 		}
-		let result: Object = await sendTextInput(text_type_input.value);
+		let result: Array = await sendTextInput(text_type_input.value);
 		for (let item of result) {
 			for (let key in item) {
 				console.log(`${key}: ${item[key]}`);

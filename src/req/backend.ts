@@ -1,6 +1,6 @@
 async function sendTextInput(
-	input: String
-): Object {
+	input: string
+): Promise<Array<Object>> {
 	let form_data: FormData = new FormData();
 	form_data.append("input_text", input);
 
